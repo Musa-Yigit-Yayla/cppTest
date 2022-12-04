@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1670175926 source:c:\users\yigit\documents\cs201\homework1\main.cpp
+	<iostream>
+	"LeagueManagementSystem.h"
+
+1667721490 source:c:\users\yigit\documents\cs201\homework1\main2.cpp
+
+1668686975 c:\users\yigit\documents\cs201\homework1\leaguemanagementsystem.h
+	<string>
+	"Team.h"
+
+1669470517 c:\users\yigit\documents\cs201\homework1\team.h
+	<string>
+	"Player.h"
+
+1667723868 c:\users\yigit\documents\cs201\homework1\player.h
+	"Team.h"
+	<string>
+
+1670077985 source:c:\users\yigit\documents\cs201\homework1\team.cpp
+	"Team.h"
+	"Player.h"
+	<string>
+	<iostream>
+
+1667662691 source:c:\users\yigit\documents\cs201\homework1\player.cpp
+	<string>
+	"Player.h"
+	"Team.h"
+
+1670176061 source:c:\users\yigit\documents\cs201\homework1\leaguemanagementsystem.cpp
+	"LeagueManagementSystem.h"
+	"Player.h"
+	"Team.h"
+	<string>
+	<iostream>
+
