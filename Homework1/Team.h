@@ -16,7 +16,7 @@ public:
     ~Team();
     string getName() const;
     int getFoundationYear() const;
-    void addPlayer(Player);
+    bool addPlayer(Player);
     Player* removePlayer(string); // pass the player name to check
     Player* getPlayer(string) const;
     int getPlayersLength() const;

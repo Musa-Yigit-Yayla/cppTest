@@ -27,54 +27,66 @@ public:*/
         int Team::getFoundationYear() const{
             return foundationYear;
         }
-        void Team::addPlayer(Player player){
+        bool Team::addPlayer(Player player){
             if(this->playersLength == 0){
                 this->players = new Player[1];
                 this->players[0] = player;
                 this->playersLength = 1;
                 std::cout << "Added player " << player.getName() << " to the team " << this->name << "." << endl;
+                return true;
             }
             else{
                 //check whether we already have the same jersey number in the team
                 Player* currPlayers = this->players;
                 for(int i = 0; i < this->playersLength; i++){
                     if((currPlayers++)->getJersey() == player.getJersey()){
-                        cout << "Cannot add player jersey number " << player.getJersey() << " already exists." << endl;
-                        return;
+                        cout << "Cannot add player jersey number " << player.getJersey() << " already exists in team " << this->name << "." << endl;
+                        return false;
                     }
                 }
 
                 //if(playersLastIndex >= playersLength){
                     //double the size of players array
-                    Player* newPlayers = new Player[this->playersLength + 1];
+                Player* newPlayers = new Player[this->playersLength + 1];
                     //copy elements
-                    for(int i = 0; i < this->playersLength; i++ ){
-                        newPlayers[i] = players[i];
-                    }
-                    newPlayers[this->playersLength] = player;
-                    delete[] players; // may need to remove !!!
-                    this->players = newPlayers;
-
+                for(int i = 0; i < this->playersLength; i++ ){
+                    newPlayers[i] = players[i];
+                }
+                newPlayers[this->playersLength] = player;
+                delete[] players; // may need to remove !!!
+                this->players = newPlayers;
 
                 std::cout << "Added player " << player.getName() << " to the team " << this->name << "." << endl;
+                return true;
             }
         }
         Player* Team::removePlayer(string name){
-            Player* returnValue;
+            Player* returnValue = nullptr;
+            bool isRemoved = false;
             for(int i = 0; i < this->playersLength; i++){
                 int comparison = name.compare(this->players[i].getName());
                 if(comparison == 0){
-                    returnValue = &players[i];
-                    //players[i] = nullptr;
+                    isRemoved = true;
                     //shift elements
-                    for(int j = i; j < playersLength - 1; j++){
-                        players[j] = players[j + 1]; // might be problematic !!!
+                    returnValue = &players[i]; // MAY GIVE WRONG RESULTS !!!!!!!!
+                    for(int j = i; j < this->playersLength - 1; j++){
+                        this->players[j] = this->players[j + 1];
                     }
-                    this->playersLength--;
-                    return returnValue;
+                    break;
                 }
             }
-            return nullptr;
+            if(isRemoved){
+                Player* newPlayers = new Player[this->playersLength - 1];
+                for(int i = 0; i < this->playersLength - 1; i++){
+                    newPlayers[i] = this->players[i];
+                }
+                delete[] this->players;
+                this->players = newPlayers;
+                this->playersLength--;
+                std::cout << "Removed player " << name << "from team " << this->name << "." << endl;
+
+            }
+            return returnValue;
         }
         Player* Team::getPlayer(string name) const{ // MAY NEED TO REMOVE CONST
             Player* returnValue = nullptr;

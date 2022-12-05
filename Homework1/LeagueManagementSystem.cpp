@@ -61,22 +61,35 @@ using namespace std;
             //Team* returnValue;
             //returnValue = nullptr;
             bool isRemoved = false;
-            int removedIndex = -1;
             //1-) find the index of the element to be removed
             //2-) shift the elements until then
 
-            for(int i = 0; i < this->teamSize; i++){
-                int comparison = name.compare(this->teams[i].getName());
+            //for(int i = 0; i < this->teamSize; i++){
+                /*int comparison = name.compare(this->teams[i].getName());
                 if(comparison == 0){
                     //retrieve the index
                     isRemoved = true;
-                    removedIndex = i;
+                    //removedIndex = i;
+                    for(int j = i; j < this->teamSize; j++){
+                        if(j != this->teamSize - 1){
+                            this->teams[j] = this->teams[j + 1];
+                        }
+                        else{
+                            //delete (&this->teams[j]);
+                            Team* teamPtr = &(this->teams[j]);
+                            delete teamPtr;
+
+                        }
+                    }
+                    break;
                 }
-            }
-            for(int j = removedIndex; j < this->teamSize - 1 && removedIndex != -1; j++){ // MIGHT BE PROBLEMATIC
+            }*/
+            /*int j = removedIndex;
+            while(j < this->teamSize && removedIndex != -1){
                 this->teams[j] = this->teams[j + 1];
-            }
-            /*for(int i = 0; i < this->teamSize; i++){
+                j++;
+            }*/
+            for(int i = 0; i < this->teamSize; i++){
                     int comparison = name.compare("" + (this->teams[i].getName()));
                     if(comparison == 0){
 
@@ -90,16 +103,17 @@ using namespace std;
                         }
                         //return returnValue;
                     }
-            }*/
-            //Create a smaller array, copy the elements then finally delete the original array. Subsequently pass the newArray as the original's pointer
-            /*Team* newTeams = new Team[this->teamSize - 1];
-            for(int i = 0; i < this->teamSize - 1; i++){
-                newTeams[i] = teams[i];
             }
-            delete[] this->teams;
-            this->teams = newTeams;*/
-            this->teamSize--;
+            //Create a smaller array, copy the elements then finally delete the original array. Subsequently pass the newArray as the original's pointer
+
             if(isRemoved){
+                Team* newTeams = new Team[this->teamSize - 1];
+                for(int i = 0; i < this->teamSize - 1; i++){
+                    newTeams[i] = teams[i];
+                }
+                delete[] this->teams;
+                this->teams = newTeams;
+                this->teamSize--;
                 std::cout << "Removed team " << name << "." << endl;
             }
             else{
@@ -115,15 +129,31 @@ using namespace std;
             for(int i = 0; i < teamSize; i++){
                     int comparison = teamName.compare(this->teams[i].getName());
                 if(comparison == 0){
-                    teams[i].addPlayer(*newPlayer);
-                    added = true;
+                    added = teams[i].addPlayer(*newPlayer);
                 }
             }
             if(!added){
-                std::cout << "Cannot add player " << (*newPlayer).getName() << ". Team " << teamName << " does not exist.";
-                //delete newPlayer;
-            }
+                //check whether we have the team
+                for(int i = 0; i < this->teamSize; i++){
+                    int comparison = teamName.compare(this->teams[i].getName());
+                    if(comparison == 0){
+                        //check each player to ensure it does not exist already
+                        /*for(int j = 0; j < this->teams[i].getPlayersLength(); j++){
+                            int comparison2 = playerName.compare(this->teams[i].getPlayer())
+                        }*/
+                        Player* checkPlayer = this->teams[i].getPlayer(playerName);
+                        if(checkPlayer != NULL){
+                            //player already exists
+                            std::cout << "Cannot add player. Player " << newPlayer->getName() << " does not exist." << endl;
+                        }
 
+                    }
+                    else if(i == this->teamSize - 1){
+                            std::cout << "Cannot add player " << (*newPlayer).getName() << ". Team " << teamName << " does not exist." << endl;
+                    }
+                }
+                delete newPlayer;
+            }
         }
         void LeagueManagementSystem::removePlayer( const string teamName, const string playerName ){
             for(int i = 0; i < teamSize; i++){
