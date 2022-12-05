@@ -22,10 +22,10 @@ public:*/
 
         }
         string Team::getName() const{
-            return name;
+            return this->name;
         }
         int Team::getFoundationYear() const{
-            return foundationYear;
+            return this->foundationYear;
         }
         bool Team::addPlayer(Player player){
             if(this->playersLength == 0){
@@ -55,7 +55,7 @@ public:*/
                 newPlayers[this->playersLength] = player;
                 delete[] players; // may need to remove !!!
                 this->players = newPlayers;
-
+                this->playersLength++; // MAY NEED TO REMOVE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
                 std::cout << "Added player " << player.getName() << " to the team " << this->name << "." << endl;
                 return true;
             }
@@ -73,6 +73,9 @@ public:*/
                         this->players[j] = this->players[j + 1];
                     }
                     break;
+                }
+                else if(i == this->playersLength - 1){
+                    std::cout << "Cannot remove player. Player " << name << " does not exist." << endl;
                 }
             }
             if(isRemoved){
@@ -98,7 +101,7 @@ public:*/
             return returnValue;
         }
         int Team::getPlayersLength() const{
-            return playersLength;
+            return this->playersLength;
         }
         int Team::getTotalSalary() const{
             int sum = 0;
@@ -108,6 +111,11 @@ public:*/
             return sum;
         }
         Player* Team::getPlayers() const{
-            return players;
+            return this->players;
+        }
+        void Team::setPlayers(Player* newPlayers, int length){
+            delete[] this->players;
+            this->players = newPlayers;
+            this->playersLength = length;
         }
 //};

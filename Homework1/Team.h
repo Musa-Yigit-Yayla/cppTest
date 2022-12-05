@@ -22,6 +22,7 @@ public:
     int getPlayersLength() const;
     int getTotalSalary() const;
     Player* getPlayers() const;
+    void setPlayers(Player*, int);
 private:
     string name;
     Player* players = nullptr;

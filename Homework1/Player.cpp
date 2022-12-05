@@ -9,6 +9,8 @@
     string teamName;
 
 public:*/
+using namespace std;
+
     Player::Player(string tn, string n, int j, int s): teamName(n), name(n), jersey(j), salary(s){
 
     }
@@ -43,7 +45,7 @@ public:*/
         return salary;
     }
     string Player::toString() const{
-        return name + (" " + jersey) + (" " + salary) + " " + teamName;
+        return this->name + (" " + std::to_string(this->jersey)) + (" " + std::to_string(this->salary)) + " " + this->teamName;
     }
 //};
 
