@@ -183,6 +183,7 @@ using namespace std;
             }
             //check whether player exists in departTeam
             Player* departPlayer = departTeam->getPlayer(playerName);
+            //cout << "HELLOOOO DEPART NAME " << departPlayer->getTeamName();
             Player* departPlayers = departTeam->getPlayers();
             Player* arrivePlayers = arriveTeam->getPlayers();
 
@@ -261,7 +262,7 @@ using namespace std;
                     //check each player to ensure whether we have the corresponding player
                     int comparison = name.compare(currPlayers[j].getName());
                     if(comparison == 0){
-                        cout << currPlayers[i].toString();
+                        cout << currPlayers[i].toString() << endl;
                         return;
                     }
                 }

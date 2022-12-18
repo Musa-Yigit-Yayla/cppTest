@@ -33,7 +33,7 @@ using namespace std;
         salary = s;
     }
     string Player::getTeamName() const{
-        return teamName;
+        return this->teamName;
     }
     string Player::getName() const{
         return name;

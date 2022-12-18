@@ -35,7 +35,7 @@
 	<string>
 	<iostream>
 
-1670257831 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\main.cpp
+1670266240 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\main.cpp
 	<iostream>
 	"LeagueManagementSystem.h"
 
@@ -53,14 +53,14 @@
 
 1667721490 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\main2.cpp
 
-1670259647 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\leaguemanagementsystem.cpp
+1670289292 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\leaguemanagementsystem.cpp
 	"LeagueManagementSystem.h"
 	"Player.h"
 	"Team.h"
 	<string>
 	<iostream>
 
-1670257645 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\player.cpp
+1670266606 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\homework1\player.cpp
 	<string>
 	"Player.h"
 	"Team.h"

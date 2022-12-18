@@ -40,7 +40,6 @@ cout << endl;
 LMS.showTeam( "Boston Celtics" );
 cout << endl;
 LMS.showPlayer( "Melih Mahmutoglu" );
-cout << endl;
 LMS.showPlayer( "Furkan Korkmaz" );
 return 0;
 }
