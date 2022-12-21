@@ -4,6 +4,8 @@
 #include <cmath>
 #include <ctime>
 #include <random>
+#include <algorithm>
+
 using namespace std;
 
 class Permutation{
@@ -20,7 +22,19 @@ public:
         string emptyString = "";
         srand(time(NULL));
         find_permutation_helper(emptyString, deletionIndexes, deletionIndexSize);
-        return allPermutations;
+
+        //There might be multiples coming from the helper method, so clean the vector before sending it
+        vector<string> cleanVector;
+        for(size_t i = 0; i < allPermutations.size(); i++){
+            string curr = allPermutations.at(i);
+            if(find(cleanVector.begin(), cleanVector.end(), curr) == cleanVector.end()){
+                //element not found
+                cleanVector.push_back(curr);
+            }
+        }
+
+
+        return cleanVector;
     }
     void find_permutation_helper(string s, int deletionIndexes[], int deletionIndexSize){
         if(static_cast<int>(s.length()) == stringLength){
@@ -42,14 +56,19 @@ public:
         boundary += stringLength;
         for(int i = 0; i < boundary; i++){ // switch to <
             string sCopy = s;
-            int x;
+            int x; // new char adding index
+            int newDeletionIndex[stringLength];
+            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, s.length()); // change to stringLength
+            /*for(int i = 0; i < originalString.length(); i++){
+                if(!contains(i, newDeletionIndex, deletionIndexSize)){
+                    x = i;
+                    break;
+                }
+            }*/
             do{
                 x = rand() % (originalString.length());
-            }while(contains(x, deletionIndexes, deletionIndexSize));
-
+            }while(contains(x, newDeletionIndex, deletionIndexSize));
             //copy the current array
-            int newDeletionIndex[stringLength];
-            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, stringLength);
             newDeletionIndex[deletionIndexSize] = x;
             sCopy += originalString.at(x);
             find_permutation_helper(sCopy, newDeletionIndex, deletionIndexSize + 1);
@@ -65,10 +84,13 @@ public:
         return false;
     }
     //copy a new of the given array
-    static void copyNewDeletionIndexes(int copyDeletionIndexes[] ,const int deletionIndexes[], int length){
+    void copyNewDeletionIndexes(int copyDeletionIndexes[] ,const int deletionIndexes[], int length){
         //int copyDeletionIndexes[stringLength];
         for(int i = 0; i < length; i++){
             copyDeletionIndexes[i] = deletionIndexes[i];
+        }
+        for(int j = length; j < stringLength; j++){
+            copyDeletionIndexes[j] = -1;
         }
         //return copyDeletionIndexes;
     }
