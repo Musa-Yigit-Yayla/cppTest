@@ -10,7 +10,7 @@ int main(){
     Permutation perm;
     vector<string> stringVector;
 
-    stringVector = perm.find_permutation("ABC");
+    stringVector = perm.find_permutation("ABCDE");
     for(size_t i = 0; i < stringVector.size(); i++){
         string curr = stringVector.at(i);
         cout << curr << endl;

@@ -33,7 +33,7 @@ public:
             }
         }
 
-
+        sort(cleanVector.begin(), cleanVector.end());
         return cleanVector;
     }
     void find_permutation_helper(string s, int deletionIndexes[], int deletionIndexSize){
@@ -55,27 +55,35 @@ public:
         int boundary = static_cast<int>(-s.length());
         boundary += stringLength;
         for(int i = 0; i < boundary; i++){ // switch to <
-            string sCopy = s;
             int x; // new char adding index
-            int newDeletionIndex[stringLength];
-            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, s.length()); // change to stringLength
+            //
+           // copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, s.length()); // change to stringLength
             /*for(int i = 0; i < originalString.length(); i++){
                 if(!contains(i, newDeletionIndex, deletionIndexSize)){
                     x = i;
                     break;
                 }
             }*/
-            do{
-                x = rand() % (originalString.length());
-            }while(contains(x, newDeletionIndex, deletionIndexSize));
-            //copy the current array
-            newDeletionIndex[deletionIndexSize] = x;
-            sCopy += originalString.at(x);
-            find_permutation_helper(sCopy, newDeletionIndex, deletionIndexSize + 1);
+            for(int i = 0; i < stringLength; i++){
+                char ch = originalString.at(i);
+                if(containsChar(ch, s)){
+                    continue;
+                }
+                else{
+                    string sCopy = s;
+                    //add it to the deletionIndex
+                    int newDeletionIndex[stringLength]; // declare newDeletionIndex array
+                    copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, deletionIndexSize); // copy the array elements
+                    newDeletionIndex[deletionIndexSize] = i;
+                    sCopy += originalString.at(i);
+                    find_permutation_helper(sCopy, newDeletionIndex, deletionIndexSize + 1);
+                }
+            }
+            //copy the current array;
         }
     }
 
-    static bool contains(int x, int arr[], int deletionIndexesSize){
+    bool contains(int x, int arr[], int deletionIndexesSize){
         for(int i = 0; i < deletionIndexesSize; i++){
             if(arr[i] == x){
                 return true;
@@ -93,5 +101,13 @@ public:
             copyDeletionIndexes[j] = -1;
         }
         //return copyDeletionIndexes;
+    }
+    bool containsChar(char ch, string s){
+        for(size_t i = 0; i < s.length(); i++){
+            if(ch == s.at(i)){
+                return true;
+            }
+        }
+        return false;
     }
 };
