@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <array>
 #include <string>
 #include <cmath>
 #include <ctime>
@@ -17,7 +18,8 @@ public:
     vector<string>find_permutation(string s){
         stringLength = s.length();
         originalString = s;
-        int deletionIndexes[stringLength];
+        const int lengthOfString = static_cast<int>(stringLength);
+        array<int, lengthOfString> deletionIndexes;
         int deletionIndexSize = 0;
         string emptyString = "";
         srand(time(NULL));
@@ -36,7 +38,8 @@ public:
 
         return cleanVector;
     }
-    void find_permutation_helper(string s, int deletionIndexes[], int deletionIndexSize){
+    template<size_t deletionIndexSize>
+    void find_permutation_helper(string s, array<int, deletionIndexSize> deletionIndexes){
         if(static_cast<int>(s.length()) == stringLength){
             //current permutation has been achieved
             //add it to vector
@@ -57,8 +60,8 @@ public:
         for(int i = 0; i < boundary; i++){ // switch to <
             string sCopy = s;
             int x; // new char adding index
-            int newDeletionIndex[stringLength];
-            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, s.length()); // change to stringLength
+            array<int, deletionIndexSize> newDeletionIndex;
+            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, deletionIndexSize); // change to stringLength
             /*for(int i = 0; i < originalString.length(); i++){
                 if(!contains(i, newDeletionIndex, deletionIndexSize)){
                     x = i;
@@ -84,7 +87,8 @@ public:
         return false;
     }
     //copy a new of the given array
-    void copyNewDeletionIndexes(int copyDeletionIndexes[] ,const int deletionIndexes[], int length){
+    template<size_t length>
+    void copyNewDeletionIndexes(array<int, length> copyDeletionIndexes , array<int, length> deletionIndexes){
         //int copyDeletionIndexes[stringLength];
         for(int i = 0; i < length; i++){
             copyDeletionIndexes[i] = deletionIndexes[i];
