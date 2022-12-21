@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <array>
 #include <string>
 #include <cmath>
 #include <ctime>
@@ -18,8 +17,7 @@ public:
     vector<string>find_permutation(string s){
         stringLength = s.length();
         originalString = s;
-        const int lengthOfString = static_cast<int>(stringLength);
-        array<int, lengthOfString> deletionIndexes;
+        int deletionIndexes[stringLength];
         int deletionIndexSize = 0;
         string emptyString = "";
         srand(time(NULL));
@@ -35,11 +33,10 @@ public:
             }
         }
 
-
+        sort(cleanVector.begin(), cleanVector.end());
         return cleanVector;
     }
-    template<size_t deletionIndexSize>
-    void find_permutation_helper(string s, array<int, deletionIndexSize> deletionIndexes){
+    void find_permutation_helper(string s, int deletionIndexes[], int deletionIndexSize){
         if(static_cast<int>(s.length()) == stringLength){
             //current permutation has been achieved
             //add it to vector
@@ -58,27 +55,35 @@ public:
         int boundary = static_cast<int>(-s.length());
         boundary += stringLength;
         for(int i = 0; i < boundary; i++){ // switch to <
-            string sCopy = s;
             int x; // new char adding index
-            array<int, deletionIndexSize> newDeletionIndex;
-            copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, deletionIndexSize); // change to stringLength
+            //
+           // copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, s.length()); // change to stringLength
             /*for(int i = 0; i < originalString.length(); i++){
                 if(!contains(i, newDeletionIndex, deletionIndexSize)){
                     x = i;
                     break;
                 }
             }*/
-            do{
-                x = rand() % (originalString.length());
-            }while(contains(x, newDeletionIndex, deletionIndexSize));
-            //copy the current array
-            newDeletionIndex[deletionIndexSize] = x;
-            sCopy += originalString.at(x);
-            find_permutation_helper(sCopy, newDeletionIndex, deletionIndexSize + 1);
+            for(int i = 0; i < stringLength; i++){
+                char ch = originalString.at(i);
+                if(containsChar(ch, s)){
+                    continue;
+                }
+                else{
+                    string sCopy = s;
+                    //add it to the deletionIndex
+                    int newDeletionIndex[stringLength]; // declare newDeletionIndex array
+                    copyNewDeletionIndexes(newDeletionIndex, deletionIndexes, deletionIndexSize); // copy the array elements
+                    newDeletionIndex[deletionIndexSize] = i;
+                    sCopy += originalString.at(i);
+                    find_permutation_helper(sCopy, newDeletionIndex, deletionIndexSize + 1);
+                }
+            }
+            //copy the current array;
         }
     }
 
-    static bool contains(int x, int arr[], int deletionIndexesSize){
+    bool contains(int x, int arr[], int deletionIndexesSize){
         for(int i = 0; i < deletionIndexesSize; i++){
             if(arr[i] == x){
                 return true;
@@ -87,8 +92,7 @@ public:
         return false;
     }
     //copy a new of the given array
-    template<size_t length>
-    void copyNewDeletionIndexes(array<int, length> copyDeletionIndexes , array<int, length> deletionIndexes){
+    void copyNewDeletionIndexes(int copyDeletionIndexes[] ,const int deletionIndexes[], int length){
         //int copyDeletionIndexes[stringLength];
         for(int i = 0; i < length; i++){
             copyDeletionIndexes[i] = deletionIndexes[i];
@@ -97,5 +101,13 @@ public:
             copyDeletionIndexes[j] = -1;
         }
         //return copyDeletionIndexes;
+    }
+    bool containsChar(char ch, string s){
+        for(size_t i = 0; i < s.length(); i++){
+            if(ch == s.at(i)){
+                return true;
+            }
+        }
+        return false;
     }
 };
