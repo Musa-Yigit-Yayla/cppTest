@@ -11,17 +11,29 @@
 
 1671374047 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\lcm game.c
 
-1671374082 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
+1671610174 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
 	<iostream>
-	"Solution.cpp"
+	"Permutation.cpp"
+	<vector>
+	<string>
 
 1671374341 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\solution.cpp
 
 1671374341 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\solution.cpp
 
-1671560986 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\permutation.cpp
+1671612801 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\permutation.cpp
 	<iostream>
 	<vector>
 	<string>
 	<cmath>
+	<ctime>
+	<random>
+
+1671612801 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\permutation.cpp
+	<iostream>
+	<vector>
+	<string>
+	<cmath>
+	<ctime>
+	<random>
 

@@ -35,6 +35,7 @@
 		<Unit filename="LCM Game.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Permutation.cpp" />
 		<Unit filename="Solution.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
