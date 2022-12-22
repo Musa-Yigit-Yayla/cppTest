@@ -21,7 +21,7 @@
 
 1671374341 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\solution.cpp
 
-1671622700 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\permutation.cpp
+1671659006 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\permutation.cpp
 	<iostream>
 	<vector>
 	<string>
@@ -39,4 +39,7 @@
 	<ctime>
 	<random>
 	<algorithm>
+
+1671700248 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mathfunctions.cpp
+	<cmath>
 

@@ -1,6 +1,7 @@
 #include <iostream>
 //#include "Solution.cpp"
 #include "Permutation.cpp"
+#include "MathFunctions.cpp"
 #include <vector>
 #include <string>
 using namespace std;
@@ -15,6 +16,7 @@ int main(){
         string curr = stringVector.at(i);
         cout << curr << endl;
     }
+    cout << MathFunctions::trailingZeroesInFactorial(251);
     //std::cout << sol.maxGcd(4);
     return 0;
 }
