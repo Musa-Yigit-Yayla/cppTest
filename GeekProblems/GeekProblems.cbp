@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="HowManyLaptops.cpp" />
 		<Unit filename="LCM Game.c">
 			<Option compilerVar="CC" />
 		</Unit>
