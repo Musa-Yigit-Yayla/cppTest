@@ -1,4 +1,5 @@
-
+#include <algorithm>
+#include <cmath>
 using namespace std;
 
 class HowManyLaptops{
@@ -25,7 +26,7 @@ public:
                 lastEnd = endCurr;
             }
         }
-        while(firstStart <= lastEnd){ // change to <
+        /*while(firstStart <= lastEnd){ // change to <
             int currLaptopCount = 0;
 
             //check each array element
@@ -42,7 +43,59 @@ public:
             }
             firstStart++;
             lastEnd--; // maybe remove
+        }*/
+        int max1 = mostFrequent(start, N, 1);
+        int max2 = mostFrequent(ending, N, 0);
+        return max(max1, max2);
+
+        //return minimumLaptopCount;
+    }
+    //returns the number of max occurences of any digit in the array
+    int mostFrequent(int arr[], int n, bool isStart){
+        // Sort the array
+        sort(arr, arr + n);
+
+        if(!isStart)
+            int frequentDigit = mostFrequentDigit(arr, n);
+
+        // Find the max frequency using linear traversal
+        int max_count = 1, res = arr[0], curr_count = 1;
+        for (int i = 1; i < n; i++) {
+
+            if (arr[i] == arr[i - 1] || arr[i] < arr[i - 1] && (!isStart && arr[i] > arr[i - 1]))
+                curr_count++;
+            else
+                curr_count = 1;
+
+            if (curr_count > max_count) {
+                max_count = curr_count;
+                res = arr[i - 1];
+            }
+
         }
-        return minimumLaptopCount;
+
+        return max_count;
+    }
+    int mostFrequentDigit(int arr[], int n){
+        // Sort the array
+        sort(arr, arr + n);
+
+        // Find the max frequency using linear traversal
+        int max_count = 1, res = arr[0], curr_count = 1;
+        for (int i = 1; i < n; i++) {
+
+            if (arr[i] == arr[i - 1] || arr[i] < arr[i - 1])
+                curr_count++;
+            else
+                curr_count = 1;
+
+            if (curr_count > max_count) {
+                max_count = curr_count;
+                res = arr[i - 1];
+            }
+
+        }
+
+        return res;
     }
 };
