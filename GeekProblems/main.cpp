@@ -17,6 +17,9 @@ int main(){
         cout << curr << endl;
     }
     cout << MathFunctions::trailingZeroesInFactorial(251);
+    MathFunctions::printAllDivisors(100);
+    vector<int> vec = MathFunctions::quadraticRoots(1, 4, 4);
+    cout << vec.at(0);
     //std::cout << sol.maxGcd(4);
     return 0;
 }
