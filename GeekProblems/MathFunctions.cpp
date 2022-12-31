@@ -116,7 +116,7 @@ public:
 
         return solutions;
     }
-    bool isPrime(int n)
+    /*bool isPrime(int n)
     {
 
         if(n <= 1){
@@ -130,7 +130,7 @@ public:
         }
         return true;
         //Your code here
-    }
+    }*/
     int modInverse(int a, int m){
         int result = -1;
         for(int i = 1; i < m; i++){

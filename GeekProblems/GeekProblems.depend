@@ -11,10 +11,11 @@
 
 1671374047 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\lcm game.c
 
-1672407056 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
+1672499104 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
 	<iostream>
 	"Permutation.cpp"
 	"MathFunctions.cpp"
+	"HowManyLaptops.cpp"
 	<vector>
 	<string>
 
@@ -40,11 +41,17 @@
 	<random>
 	<algorithm>
 
-1671700248 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mathfunctions.cpp
-	<cmath>
-
-1672407430 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mathfunctions.cpp
+1672498945 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mathfunctions.cpp
 	<cmath>
 	<vector>
 	<iostream>
+
+1672498945 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mathfunctions.cpp
+	<cmath>
+	<vector>
+	<iostream>
+
+1672500892 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\howmanylaptops.cpp
+
+1672500892 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\howmanylaptops.cpp
 
