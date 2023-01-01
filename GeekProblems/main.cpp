@@ -3,6 +3,7 @@
 #include "Permutation.cpp"
 #include "MathFunctions.cpp"
 #include "HowManyLaptops.cpp"
+#include "MergeWithoutSpace.cpp"
 #include <vector>
 #include <string>
 using namespace std;
@@ -23,8 +24,10 @@ int main(){
     cout << vec.at(0);
     //std::cout << sol.maxGcd(4);*/
     HowManyLaptops hwl;
-    int start[]{2, 1, 1, 1, 4, 2};
-    int ending[]{3, 2, 2, 2, 5, 4};
-    cout << hwl.minLaptops(6, start, ending);
+    long long start[]{1,3,5,7};
+    long long ending[]{0,2,6,8,9};
+    //cout << hwl.minLaptops(6, start, ending);
+    MergeWithoutSpace mws;
+    mws.builtInMerge(start, ending, 4 ,5);
     return 0;
 }
