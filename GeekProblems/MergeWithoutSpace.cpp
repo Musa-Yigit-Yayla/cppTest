@@ -2,6 +2,8 @@
 m = 5, arr2[] = [0 2 6 8 9]*/
 #include <iostream>
 #include <algorithm>
+#include <algorithm>
+#include <functional>
 
 using namespace std;
 class MergeWithoutSpace{
@@ -57,37 +59,44 @@ class MergeWithoutSpace{
 
             int i = 0, j = 0, k = n - 1;
 
-            while(i <= k){
+            while(i <= k && j < m){
                 //replace k with arr2j if possible
-                if(arr2[j] <= arr1[k]){
+                if(arr2[j] < arr1[k]){
                     long long temp = arr2[j];
                     arr2[j] = arr1[k];
                     arr1[k] = temp;
+
                     j++;
                     k--;
 
                 }
-                else{ //if(arr1[i] > arr2[j]){ // may wanna remove else
+                else if(arr1[i] > arr2[j]){ // may wanna remove else
                     //swap
                     long long temp = arr2[j];
                     arr2[j] = arr1[i];
                     arr1[i] = temp;
+
                     j++;
+                    i++;
+                }
+                else{
+                    //j++;
                     i++;
                 }
             }
             //Sort the arrays
-            quickSort(arr1, 0, n - 1);
-            quickSort(arr2, 0, m - 1);
+            sort(arr1, arr1 + n);
+            sort(arr2, arr2 + m);
+            //quickSort(arr1, 0, n - 1);
+            //quickSort(arr2, 0, m - 1);
             //Display the arrays
             for(int i = 0; i < n; i++){
                 cout << arr1[i] << " ";
             }
-            cout << endl;
+            //cout << endl;
             for(int i = 0; i < m; i++){
                 cout << arr2[i] << " ";
             }
-            cout << endl;
         }
         void quickSort2(long long arr[], int n, int low, int high){
             int pivot = arr[0];
@@ -113,7 +122,7 @@ class MergeWithoutSpace{
             quickSort2(arr, n, 0, high);
             quickSort2(arr, n, low, n - 1);
         }
-        void swap1(long long* a, long long* b){
+       inline void swap1(long long* a, long long* b){
             long long t = *a;
             *a = *b;
         *b = t;

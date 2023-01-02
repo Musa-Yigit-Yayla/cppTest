@@ -37,6 +37,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="MathFunctions.cpp" />
+		<Unit filename="MergeWithoutSpace.cpp" />
 		<Unit filename="Permutation.cpp" />
 		<Unit filename="Solution.cpp" />
 		<Unit filename="main.cpp" />

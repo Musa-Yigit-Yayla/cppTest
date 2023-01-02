@@ -23,11 +23,11 @@ int main(){
     vector<int> vec = MathFunctions::quadraticRoots(1, 4, 4);
     cout << vec.at(0);
     //std::cout << sol.maxGcd(4);*/
-    HowManyLaptops hwl;
-    long long start[]{1,3,5,7};
-    long long ending[]{0,2,6,8,9};
+    //HowManyLaptops hwl;
+    long long start[]{13, 21, 25, 25, 25, 28, 30, 30, 34, 35, 36, 39, 49, 49,};
+    long long ending[]{10, 29};
     //cout << hwl.minLaptops(6, start, ending);
     MergeWithoutSpace mws;
-    mws.builtInMerge(start, ending, 4 ,5);
+    mws.builtInMerge(start, ending, 14 ,2);
     return 0;
 }
