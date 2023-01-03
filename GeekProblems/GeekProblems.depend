@@ -11,12 +11,13 @@
 
 1671374047 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\lcm game.c
 
-1672756528 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
+1672758016 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
 	<iostream>
 	"Permutation.cpp"
 	"MathFunctions.cpp"
 	"HowManyLaptops.cpp"
 	"MergeWithoutSpace.cpp"
+	"MinimizeStudents.cpp"
 	<vector>
 	<string>
 
@@ -73,6 +74,11 @@
 	<functional>
 
 1672757669 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\minimizestudents.cpp
+	<iostream>
+	<vector>
+	<bits/stdc++.h>
+
+1672758619 c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\minimizestudents.cpp
 	<iostream>
 	<vector>
 	<bits/stdc++.h>

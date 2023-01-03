@@ -80,7 +80,7 @@ public:
                 if(curr < prev){
                     //subsequence doesn't work remove the subsequence at the subsequences vector
                     this->subsequences.at(i).clear();
-                    vector<vector<int>>::iterator it = this->subsequences.begin() + i;
+                    vector<vector<int>>::iterator it = this->subsequences.begin() + j;
                     this->subsequences.erase(it);
                     i--;
                     break;
