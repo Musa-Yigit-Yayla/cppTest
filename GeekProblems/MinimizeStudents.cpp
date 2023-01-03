@@ -24,13 +24,14 @@ public:
     int removeStudent(int heights[], int n){
         int result;
         //Find all subsequences
-        this->findSubsequences();
+        vector<int> emptyVector;
+        this->findSubsequences(heights, 0 ,emptyVector, n);
         //Remove non increasing subsequences
         bool x = this->isIncreasingVector(); // clear the non increasing ones
         this->subsequences.resize();
         //find the lengthiest vector
         int maxSize = this->subsequences.at(0).size();
-        for(İnt j = 1; j < this->subsequences.size(); j++){
+        for(int j = 1; j < this->subsequences.size(); j++){
             int currSize = this->subsequences.at(i).size();
             if(currSize > maxSize){
                 maxSize = currSize;
@@ -64,10 +65,10 @@ public:
 
     }
     //Clear the non increasing ones will return true if anything exists
-    bool isIncreasingVector(vector<int> &vec){
+    bool isIncreasingVector(){
         bool returnVal = false;
-        for(int i = 0; i < vec.size(); i++){
-            vector<int> currentVec = this->findSubsequences().at(i);
+        for(int i = 0; i < this->subsequences.size(); i++){
+            vector<int> currentVec = this->subsequences().at(i);
             int prev = currentVec.at(0);
             int curr;
             if(vec.size() <= 1){
