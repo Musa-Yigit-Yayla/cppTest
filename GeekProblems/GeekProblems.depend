@@ -11,7 +11,7 @@
 
 1671374047 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\lcm game.c
 
-1672645591 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
+1672756528 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\main.cpp
 	<iostream>
 	"Permutation.cpp"
 	"MathFunctions.cpp"
@@ -60,7 +60,7 @@
 	<algorithm>
 	<cmath>
 
-1672645540 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mergewithoutspace.cpp
+1672645612 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\mergewithoutspace.cpp
 	<iostream>
 	<algorithm>
 	<algorithm>
@@ -71,4 +71,9 @@
 	<algorithm>
 	<algorithm>
 	<functional>
+
+1672757669 source:c:\users\yigit\documents\netbeansprojects\stopmotioneditorgitrepository\c---test\geekproblems\minimizestudents.cpp
+	<iostream>
+	<vector>
+	<bits/stdc++.h>
 
